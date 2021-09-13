@@ -12,17 +12,15 @@ print(client.mflix)
 
 pipeline = [
     {
-        "$group": {
-            "_id": {"languaje": "$language"},
-            "count":{"$sum":1}
-        }
-    }
+        "$match": {
+            "language": {"language": "Korean, English"}}}
 ]
 
+filter = {"language": "Korean, English"}
 clear_output()
 
 
-pprint.pprint(list(client.Cluster0.movies_initial.aggregate(pipeline)))
+pprint.pprint(list(client.Cluster0.movies_initial.find(filter)))
 
 
 
