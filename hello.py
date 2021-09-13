@@ -16,11 +16,12 @@ pipeline = [
             "language": {"language": "Korean, English"}}}
 ]
 
-filter = {"language": "Korean, English"}
+filter = {"language": "Korean, English","rating":"UNRATED"}
 clear_output()
 
-
-pprint.pprint(list(client.Cluster0.movies_initial.find(filter)))
+answer = list(client.Cluster0.movies_initial.find(filter))
+print("cantidad len(answer)",len(answer))
+pprint.pprint(answer)
 
 
 
